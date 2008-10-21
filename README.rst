@@ -20,7 +20,7 @@ Options
 -------
 
 urls
-    A space-separated list of packages that should be installed into
+    A list of packages (one per line) that should be installed into
     ``${buildout:parts-directory}/<partname>``.
 
 Additionally provided variables

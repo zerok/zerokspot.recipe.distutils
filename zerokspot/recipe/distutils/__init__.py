@@ -1,10 +1,10 @@
-import os, sys, site, subprocess, shutil, tempfile, urllib2, logging
+import os, sys, site, subprocess, shutil, tempfile, urllib2, logging, string
 import os.path
 import zc.buildout
 import setuptools.archive_util
 import distutils.core
 
-VERSION = (0, 1, 0, 'final', 0)
+VERSION = (0, 1, 1, 'final', 0)
 
 def get_version():
     v = '%d.%d' % VERSION[:2]
@@ -35,8 +35,9 @@ class Recipe(object):
         self.offline = buildout['buildout']['offline'].lower() == 'true'
         if not os.path.exists(self.downloads):
             os.mkdir(self.downloads)
-        self.urls = map(lambda x : x.rstrip().lstrip(), 
-                options['urls'].split(" "))
+        self.urls = options['urls'].splitlines()
+        self.urls = map(string.strip, self.urls)
+        self.urls = filter(len, self.urls)
 
     def install(self):
         if not os.path.exists(self.options['extra-path']):

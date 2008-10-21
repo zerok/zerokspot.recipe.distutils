@@ -1,0 +1,14 @@
+*.pyc
+*.html
+bin
+build
+develop-eggs
+dist
+downloads
+env
+parts
+playground
+*.egg-info
+*.egg
+buildout.cfg
+.installed.cfg

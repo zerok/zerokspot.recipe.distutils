@@ -4,20 +4,6 @@ import zc.buildout
 import setuptools.archive_util
 import distutils.core
 
-VERSION = (0, 1, 1, 'final', 0)
-
-def get_version():
-    v = '%d.%d' % VERSION[:2]
-    if VERSION[2] != 0:
-        v = '%s.%d' % (v, VERSION[2])
-    if VERSION[3] != 'final':
-        if VERSION[3] == 'dev':
-            return '%sdev' % (v,)
-        else:
-            return '%s%s%d' % (v, VERSION[3], VERSION[4])
-    else:
-        return v
-
 class Recipe(object):
 
     def __init__(self, buildout, name, options):

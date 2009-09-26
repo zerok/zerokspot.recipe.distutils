@@ -1,12 +1,11 @@
 from setuptools import setup, find_packages
-from zerokspot.recipe.distutils import get_version
 
 setup(
         name='zerokspot.recipe.distutils',
         author='Horst Gutmann',
         author_email='zerok@zerokspot.com',
         description="Recipe for zc.buildout that downloads one or multiple distutils-archives and installs them",
-        version=get_version(),
+        version='0.1.2',
         packages=find_packages(),
         entry_points={'zc.buildout': 
             ['default = zerokspot.recipe.distutils:Recipe']},
